@@ -1,0 +1,32 @@
+version: '2.1'
+services:
+
+  tarantool-router1:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8081:8081"
+    command: ["cartridge", "start", "app.router1", "--script", "/opt/cartridge-app/init.lua", "--cfg", "/opt/cartridge-app/instances.yml"]
+
+  tarantool-router2:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8082:8081"
+    command: ["cartridge", "start", "app.router2", "--script", "/opt/cartridge-app/init.lua", "--cfg", "/opt/cartridge-app/instances.yml"]
+
+  tarantool-router3:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8083:8081"
+    command: ["cartridge", "start", "app.router3", "--script", "/opt/cartridge-app/init.lua", "--cfg", "/opt/cartridge-app/instances.yml"]
+
+  tarantool-stateboard:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: ["cartridge", "start", "app.stateboard", "--script", "/opt/cartridge-app/stateboard.init.lua", "--cfg", "/opt/cartridge-app/instances.yml"]

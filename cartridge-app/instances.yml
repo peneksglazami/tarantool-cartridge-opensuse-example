@@ -1,0 +1,20 @@
+app.router1:
+  advertise_uri: tarantool-router1:3301
+  http_port: 8081
+  memtx_memory: 268435456
+
+app.router2:
+    advertise_uri: tarantool-router2:3301
+    http_port: 8081
+    memtx_memory: 268435456
+
+app.router3:
+  advertise_uri: tarantool-router3:3301
+  http_port: 8081
+  memtx_memory: 268435456
+
+app.stateboard:
+  workdir: ./tmp/db_dev/3310
+  listen: tarantool-stateboard:3310
+  memtx_memory: 268435456
+  password: passwd
